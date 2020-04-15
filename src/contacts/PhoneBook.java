@@ -10,52 +10,52 @@ import java.util.function.Consumer;
 public class PhoneBook implements Serializable, Iterable<Contact> {
     private static final long serialVersionUID = 8419192590332967500L;
 
-    private List<Contact> list;
+    private List<Contact> contacts;
 
     public PhoneBook() {
-        this.list = new ArrayList<>();
+        this.contacts = new ArrayList<>();
     }
 
     public boolean add(Contact contact) {
-        return list.add(contact);
+        return contacts.add(contact);
     }
 
     public boolean remove(Contact contact) {
-        return list.remove(contact);
+        return contacts.remove(contact);
     }
 
     public Contact remove(int i) {
-        return list.remove(i);
+        return contacts.remove(i);
     }
 
     public Contact get(int i) {
-        return list.get(i);
+        return contacts.get(i);
     }
 
     public Contact set(int i, Contact contact) {
-        return list.set(i, contact);
+        return contacts.set(i, contact);
     }
 
     public int size() {
-        return list.size();
+        return contacts.size();
     }
 
     public boolean contains(Contact contact) {
-        return list.contains(contact);
+        return contacts.contains(contact);
     }
 
     @Override
     public Iterator<Contact> iterator() {
-        return list.iterator();
+        return contacts.iterator();
     }
 
     @Override
     public void forEach(Consumer<? super Contact> action) {
-        list.forEach(action);
+        contacts.forEach(action);
     }
 
     @Override
     public Spliterator<Contact> spliterator() {
-        return list.spliterator();
+        return contacts.spliterator();
     }
 }
