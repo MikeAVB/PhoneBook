@@ -14,10 +14,12 @@ public class PhoneBook {
         return list.add(contact);
     }
 
-
-
     public boolean remove(Contact contact) {
         return list.remove(contact);
+    }
+
+    public Contact get(int i) {
+        return list.get(i);
     }
 
     public int size() {
