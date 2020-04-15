@@ -93,4 +93,31 @@ public class Contact implements Serializable {
                 .add("number='" + number + "'")
                 .toString();
     }
+
+    public static class Builder {
+        private Contact contact;
+
+        public Builder() {
+            this.contact = new Contact();
+        }
+
+        public Builder setName(String name) {
+            this.contact.setName(name);
+            return this;
+        }
+
+        public Builder setSurname(String surname) {
+            this.contact.setSurname(surname);
+            return this;
+        }
+
+        public Builder setNumber(String number) {
+            this.contact.setNumber(number);
+            return this;
+        }
+
+        public Contact build() {
+            return contact;
+        }
+    }
 }
