@@ -8,7 +8,8 @@ public class Contact implements Serializable {
     private static final long serialVersionUID = -7304663980751235281L;
 
     //TODO: implement real phone number format pattern
-    private final static String NUMBER_REGEX = "^\\d{3,10}$";
+    private final static String NUMBER_REGEX =
+            "^\\+?(([a-zA-Z0-9]+)|(\\([a-zA-Z0-9]+\\))|([a-zA-Z0-9]+[ -]\\([a-zA-Z0-9]{2,}\\)))([ -][a-zA-Z0-9]{2,})*$";
     private final static Pattern pattern = Pattern.compile(NUMBER_REGEX);
 
     private final static String DEFAULT_NAME = "";
