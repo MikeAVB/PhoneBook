@@ -26,6 +26,7 @@ public class Main {
                     break;
                 case "list":
                     manager.list();
+                    break;
                 case "exit":
                     quit = true;
                     break;

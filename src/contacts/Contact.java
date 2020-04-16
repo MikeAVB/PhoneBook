@@ -19,7 +19,7 @@ public class Contact implements Serializable {
     private String surname;
     private String number;
 
-    public Contact() {
+    private Contact() {
         this.name = DEFAULT_NAME;
         this.surname = DEFAULT_SURNAME;
         this.number = DEFAULT_NUMBER;
@@ -58,7 +58,7 @@ public class Contact implements Serializable {
     }
 
     public void setNumber(String number) {
-        if (pattern.matcher(number).matches()) {
+        if (number.isEmpty() || pattern.matcher(number).matches()) {
             this.number = number;
         } else {
             throw new NumberFormatException("Wrong number format!");
@@ -87,11 +87,18 @@ public class Contact implements Serializable {
 
     @Override
     public String toString() {
-        return new StringJoiner(", ", Contact.class.getSimpleName() + "[", "]")
-                .add("name='" + name + "'")
-                .add("surname='" + surname + "'")
-                .add("number='" + number + "'")
-                .toString();
+        StringBuilder builder = new StringBuilder();
+        builder.append(this.name);
+        if (!this.surname.isEmpty()) {
+            builder.append(" ").append(this.surname);
+        }
+        builder.append(", ");
+        if (!this.number.isEmpty()) {
+            builder.append(this.number);
+        } else {
+            builder.append("[no number]");
+        }
+        return builder.toString();
     }
 
     public static class Builder {
